@@ -23,7 +23,7 @@ export const Header = () => {
         <button
           onClick={logout}
           // Added a slightly darker hover effect and shadow
-          className="bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95"
+          className=" bg-gray-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95"
         >
           Logout
         </button>
