@@ -8,7 +8,11 @@ const transactionRoutes = require("./routes/transactions.js");
 const users = require("./routes/user.js");
 const app = express();
 app.use(express.json());
-const allowedOrigins = ["http://localhost:5173", process.env.FRONTEND_URL];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://expense-tracker-peach-eight-63.vercel.app", // <--- Hardcoded to be 100% sure
+  "https://expense-tracker-peach-eight-63.vercel.app/", // <--- Just in case browser adds a slash
+];
 app.use(
   cors({
     origin: (origin, callback) => {
@@ -18,6 +22,7 @@ app.use(
       if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.log("🚫 Blocked by CORS. Origin:", origin);
         callback(new Error("Not allowed by CORS"));
       }
     },
