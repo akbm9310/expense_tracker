@@ -36,6 +36,8 @@ exports.addTransaction = async (req, res, next) => {
       data: transaction,
     });
   } catch (error) {
+    console.log("ADD TRANSACTION ERROR:", error);
+
     // Check if it was a Validation Error (e.g., missing text)
     if (error.name === "ValidationError") {
       const messages = Object.values(error.errors).map((val) => val.message);

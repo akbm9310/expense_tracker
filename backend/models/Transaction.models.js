@@ -13,7 +13,7 @@ const TransactionSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      required: [true, "Please upload an image"],
+      //required: [true, "Please upload an image"],
     },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
