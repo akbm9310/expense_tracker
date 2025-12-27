@@ -90,7 +90,17 @@ export const AuthProvider = ({ children }) => {
 
   // 3. LOGOUT ACTION
   async function logout() {
-    dispatch({ type: "LOGOUT" });
+    try {
+      // Call backend to destroy the cookie
+      await axios.post("/api/v1/users/logout");
+
+      // Clear local state
+      dispatch({ type: "LOGOUT" });
+    } catch (err) {
+      console.error("Logout failed:", err);
+      // Force logout on frontend even if backend fails
+      dispatch({ type: "LOGOUT" });
+    }
   }
 
   // ----------------------------------------------------

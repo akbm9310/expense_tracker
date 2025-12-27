@@ -67,9 +67,9 @@ exports.registerUser = async (req, res) => {
 
     const options = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Lax",
-      path: "/", // <--- CRITICAL: Allows cookie on entire site
+      secure: process.env.NODE_ENV === "production", // true on Render
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // <--- THIS IS THE FIX
+      path: "/",
     };
 
     return res
@@ -114,8 +114,8 @@ exports.loginUser = async (req, res) => {
 
     const options = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Lax",
+      secure: process.env.NODE_ENV === "production", // true on Render
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // <--- THIS IS THE FIX
       path: "/",
     };
 
