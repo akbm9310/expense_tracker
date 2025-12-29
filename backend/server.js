@@ -12,6 +12,8 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://expense-tracker-peach-eight-63.vercel.app", // <--- Hardcoded to be 100% sure
   "https://expense-tracker-peach-eight-63.vercel.app/", // <--- Just in case browser adds a slash
+  "https://expense-tracker-lp93dr6cq-akash-narayans-projects.vercel.app",
+  "https://expense-tracker-lp93dr6cq-akash-narayans-projects.vercel.app/",
 ];
 app.use(
   cors({
